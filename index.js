@@ -29,10 +29,9 @@ module.exports = ListboxMenu;
 function ListboxMenu() {
   if (!(this instanceof ListboxMenu)) return new ListboxMenu;
   Menu.call(this);
-  this.el = $(this.el);
-  this.el.addClass('listbox-menu');
-  this.el.hover(this.deselect.bind(this));
-  this.el.unbind('hover');
+  $(this.el).addClass('listbox-menu');
+  $(this.el).hover(this.deselect.bind(this));
+  $(this.el).unbind('hover');
   $('html').unbind('click');
   this.off('show');
   this.off('hide');
@@ -102,7 +101,7 @@ ListboxMenu.prototype.setSelectChecker = function(checker) {
 };
 
 ListboxMenu.prototype.reset = function() {
-  this.el.empty();
+  $(this.el).empty();
   this.items = {};
 }
 
